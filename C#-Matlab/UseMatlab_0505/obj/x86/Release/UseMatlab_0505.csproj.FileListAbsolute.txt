@@ -1,0 +1,13 @@
+E:\UseMatlab_0505\UseMatlab_0505\obj\x86\Release\UseMatlab_0505.csproj.ResolveComReference.cache
+E:\UseMatlab_0505\UseMatlab_0505\bin\Release\UseMatlab_0505.exe
+E:\UseMatlab_0505\UseMatlab_0505\bin\Release\UseMatlab_0505.pdb
+E:\UseMatlab_0505\UseMatlab_0505\obj\x86\Release\UseMatlab_0505.Form1.resources
+E:\UseMatlab_0505\UseMatlab_0505\obj\x86\Release\UseMatlab_0505.PlayForm.resources
+E:\UseMatlab_0505\UseMatlab_0505\obj\x86\Release\UseMatlab_0505.Properties.Resources.resources
+E:\UseMatlab_0505\UseMatlab_0505\obj\x86\Release\UseMatlab_0505.csproj.GenerateResource.Cache
+E:\UseMatlab_0505\UseMatlab_0505\obj\x86\Release\UseMatlab_0505.exe
+E:\UseMatlab_0505\UseMatlab_0505\obj\x86\Release\UseMatlab_0505.pdb
+E:\UseMatlab_0505\UseMatlab_0505\obj\x86\Release\Interop.MLApp.dll
+E:\UseMatlab_0505\UseMatlab_0505\bin\Release\add.dll
+E:\UseMatlab_0505\UseMatlab_0505\obj\x86\Release\UseMatlab_0505.csprojResolveAssemblyReference.cache
+E:\UseMatlab_0505\UseMatlab_0505\bin\Release\add.xml

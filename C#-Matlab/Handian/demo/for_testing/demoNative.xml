@@ -1,0 +1,1717 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>demoNative</name>
+    </assembly>
+    <members>
+        <member name="T:demoNative.Demo">
+            <summary>
+            The Demo class provides a CLS compliant, Object (native) interface to the MATLAB
+            functions contained in the files:
+            <newpara></newpara>
+            E:\UseMatlab_0505\Handian\demo.m
+            <newpara></newpara>
+            E:\UseMatlab_0505\Handian\Greed.m
+            <newpara></newpara>
+            E:\UseMatlab_0505\Handian\Greed2t.m
+            <newpara></newpara>
+            E:\UseMatlab_0505\Handian\Plot4Sim.m
+            <newpara></newpara>
+            E:\UseMatlab_0505\Handian\poly_intersect.m
+            <newpara></newpara>
+            E:\UseMatlab_0505\Handian\RandHandian.m
+            <newpara></newpara>
+            E:\UseMatlab_0505\Handian\ThreeGroup.m
+            <newpara></newpara>
+            deployprint.m
+            <newpara></newpara>
+            printdlg.m
+            </summary>
+            <remarks>
+            @Version 0.0
+            </remarks>
+        </member>
+        <member name="M:demoNative.Demo.#cctor">
+            <summary internal= "true">
+            The static constructor instantiates and initializes the MATLAB Compiler Runtime
+            instance.
+            </summary>
+        </member>
+        <member name="M:demoNative.Demo.#ctor">
+            <summary>
+            Constructs a new instance of the Demo class.
+            </summary>
+        </member>
+        <member name="M:demoNative.Demo.Finalize">
+            <summary internal= "true">
+            Class destructor called by the CLR garbage collector.
+            </summary>
+        </member>
+        <member name="M:demoNative.Demo.Dispose">
+            <summary>
+            Frees the native resources associated with this object
+            </summary>
+        </member>
+        <member name="M:demoNative.Demo.Dispose(System.Boolean)">
+            <summary internal= "true">
+            Internal dispose function
+            </summary>
+        </member>
+        <member name="M:demoNative.Demo.demo">
+             <summary>
+             Provides a void output, 0-input Objectinterface to the demo MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             actual main
+             demo
+             </remarks>
+            
+        </member>
+        <member name="M:demoNative.Demo.demo(System.Object)">
+             <summary>
+             Provides a void output, 1-input Objectinterface to the demo MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             actual main
+             demo
+             </remarks>
+             <param name="_U4b">Input argument #1</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.demo(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the demo MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             actual main
+             demo
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.demo(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the demo MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             actual main
+             demo
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="_U4b">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.demo(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the demo function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             actual main
+             demo
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the Greed MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             PP(:,:) = PPt(kkk,:,:);
+             PP = poly_intersect(np,PP);
+             PPt(kkk,:,:) = PP(:,:);    
+             out = kkk
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the Greed MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             PP(:,:) = PPt(kkk,:,:);
+             PP = poly_intersect(np,PP);
+             PPt(kkk,:,:) = PP(:,:);    
+             out = kkk
+             </remarks>
+             <param name="np">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the Greed MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             PP(:,:) = PPt(kkk,:,:);
+             PP = poly_intersect(np,PP);
+             PPt(kkk,:,:) = PP(:,:);    
+             out = kkk
+             </remarks>
+             <param name="np">Input argument #1</param>
+             <param name="P">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the Greed MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             PP(:,:) = PPt(kkk,:,:);
+             PP = poly_intersect(np,PP);
+             PPt(kkk,:,:) = PP(:,:);    
+             out = kkk
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the Greed MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             PP(:,:) = PPt(kkk,:,:);
+             PP = poly_intersect(np,PP);
+             PPt(kkk,:,:) = PP(:,:);    
+             out = kkk
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="np">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the Greed MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             PP(:,:) = PPt(kkk,:,:);
+             PP = poly_intersect(np,PP);
+             PPt(kkk,:,:) = PP(:,:);    
+             out = kkk
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="np">Input argument #1</param>
+             <param name="P">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the Greed function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             PP(:,:) = PPt(kkk,:,:);
+             PP = poly_intersect(np,PP);
+             PPt(kkk,:,:) = PP(:,:);    
+             out = kkk
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed2t">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the Greed2t MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed2t(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the Greed2t MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="np">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed2t(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the Greed2t MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="np">Input argument #1</param>
+             <param name="P">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed2t(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the Greed2t MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed2t(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the Greed2t MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="np">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed2t(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the Greed2t MATLAB function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="np">Input argument #1</param>
+             <param name="P">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Greed2t(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the Greed2t function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim">
+             <summary>
+             Provides a void output, 0-input Objectinterface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Object)">
+             <summary>
+             Provides a void output, 1-input Objectinterface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="mP1">Input argument #1</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Object,System.Object)">
+             <summary>
+             Provides a void output, 2-input Objectinterface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a void output, 3-input Objectinterface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a void output, 4-input Objectinterface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a void output, 5-input Objectinterface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+             <param name="mP3">Input argument #5</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a void output, 6-input Objectinterface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+             <param name="mP3">Input argument #5</param>
+             <param name="P3">Input argument #6</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a void output, 7-input Objectinterface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+             <param name="mP3">Input argument #5</param>
+             <param name="P3">Input argument #6</param>
+             <param name="mP4">Input argument #7</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a void output, 8-input Objectinterface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+             <param name="mP3">Input argument #5</param>
+             <param name="P3">Input argument #6</param>
+             <param name="mP4">Input argument #7</param>
+             <param name="P4">Input argument #8</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="mP1">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 3-input Object interface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 4-input Object interface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 5-input Object interface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+             <param name="mP3">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 6-input Object interface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+             <param name="mP3">Input argument #5</param>
+             <param name="P3">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 7-input Object interface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+             <param name="mP3">Input argument #5</param>
+             <param name="P3">Input argument #6</param>
+             <param name="mP4">Input argument #7</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 8-input Object interface to the Plot4Sim MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="mP1">Input argument #1</param>
+             <param name="P1">Input argument #2</param>
+             <param name="mP2">Input argument #3</param>
+             <param name="P2">Input argument #4</param>
+             <param name="mP3">Input argument #5</param>
+             <param name="P3">Input argument #6</param>
+             <param name="mP4">Input argument #7</param>
+             <param name="P4">Input argument #8</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.Plot4Sim(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the Plot4Sim function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             if mP1 &lt; 2 || mP2 &lt; 2 || mP3 &lt; 2 || mP4 &lt; 2 
+             return;
+             end
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.poly_intersect">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the poly_intersect MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             **********************************************************   
+             判断各点按顺序相连的线段是否有交点
+             poly_x,poly_y 分别为各个点的x,y坐标，均为列向量
+             **********************************************************   
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.poly_intersect(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the poly_intersect MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             **********************************************************   
+             判断各点按顺序相连的线段是否有交点
+             poly_x,poly_y 分别为各个点的x,y坐标，均为列向量
+             **********************************************************   
+             </remarks>
+             <param name="np">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.poly_intersect(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the poly_intersect MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             **********************************************************   
+             判断各点按顺序相连的线段是否有交点
+             poly_x,poly_y 分别为各个点的x,y坐标，均为列向量
+             **********************************************************   
+             </remarks>
+             <param name="np">Input argument #1</param>
+             <param name="PP_in1">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.poly_intersect(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the poly_intersect MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             **********************************************************   
+             判断各点按顺序相连的线段是否有交点
+             poly_x,poly_y 分别为各个点的x,y坐标，均为列向量
+             **********************************************************   
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.poly_intersect(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the poly_intersect MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             **********************************************************   
+             判断各点按顺序相连的线段是否有交点
+             poly_x,poly_y 分别为各个点的x,y坐标，均为列向量
+             **********************************************************   
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="np">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.poly_intersect(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the poly_intersect MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             **********************************************************   
+             判断各点按顺序相连的线段是否有交点
+             poly_x,poly_y 分别为各个点的x,y坐标，均为列向量
+             **********************************************************   
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="np">Input argument #1</param>
+             <param name="PP_in1">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.poly_intersect(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the poly_intersect function in which the input and
+             output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             **********************************************************   
+             判断各点按顺序相连的线段是否有交点
+             poly_x,poly_y 分别为各个点的x,y坐标，均为列向量
+             **********************************************************   
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="length">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="length">Input argument #1</param>
+             <param name="width">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 3-input Objectinterface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="length">Input argument #1</param>
+             <param name="width">Input argument #2</param>
+             <param name="yover">Input argument #3</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 4-input Objectinterface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="length">Input argument #1</param>
+             <param name="width">Input argument #2</param>
+             <param name="yover">Input argument #3</param>
+             <param name="minidistP2P">Input argument #4</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 5-input Objectinterface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="length">Input argument #1</param>
+             <param name="width">Input argument #2</param>
+             <param name="yover">Input argument #3</param>
+             <param name="minidistP2P">Input argument #4</param>
+             <param name="NumofP">Input argument #5</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="length">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="length">Input argument #1</param>
+             <param name="width">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Int32,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 3-input Object interface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="length">Input argument #1</param>
+             <param name="width">Input argument #2</param>
+             <param name="yover">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Int32,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 4-input Object interface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="length">Input argument #1</param>
+             <param name="width">Input argument #2</param>
+             <param name="yover">Input argument #3</param>
+             <param name="minidistP2P">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 5-input Object interface to the RandHandian MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="length">Input argument #1</param>
+             <param name="width">Input argument #2</param>
+             <param name="yover">Input argument #3</param>
+             <param name="minidistP2P">Input argument #4</param>
+             <param name="NumofP">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.RandHandian(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the RandHandian function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             width  = 1500;
+             length = 1500;
+             minidistP2P = 50;
+             NumofP =40;
+             P=[553,	 49,1,0;     x,y,形状材料(1:8ABS; 2:8PP; 3:7ABS; 4:7PP; 5:方1PP;  
+             6:方2ABS; 7：方3PP; 8: 方4PP)   指定工位 1-3
+             570,	100,1,0;
+             571,	163,1,0;
+             576,	233,1,0;
+             581,	308,1,0;
+             587,	383,1,0;
+             593,	458,1,0;
+             600,	538,1,0;
+             606,	613,1,0;
+             621,	634,1,0;
+             629,	669,1,0;
+             617,	664,7,0;
+             672,	658,1,0;
+             722,	633,1,0;
+             771,	594,1,0;
+             758,	561,1,0;
+             758,	539,7,0;
+             754,	503,1,0;
+             737,	473,1,0;
+             728,	414,1,0;
+             722,	342,1,0;
+             715,	318,7,0;
+             715,	256,7,0;
+             715,	193,7,0;
+             716,	139,7,0;
+             719,	 97,7,0;
+             857,	137,1,0;
+             937,	166,1,0;
+             985,	214,1,0;
+             1009,	278,1,0;
+             1008,	353,1,0;
+             989,	394,1,0;
+             1008,	431,1,0;
+             991,	473,1,0;
+             1010,	510,1,0;
+             1010,	613,1,0;
+             1009,	673,1,0;
+             1009,	733,1,0;
+             1010,	797,1,0;
+             1007,	861,1,0;];
+             tP = P(:,1);
+             P(:,1) = P(:,2);
+             P(:,2) = tP - 540;
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.ThreeGroup">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the ThreeGroup MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             按指定的分工位
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.ThreeGroup(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the ThreeGroup MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             按指定的分工位
+             </remarks>
+             <param name="np">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.ThreeGroup(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the ThreeGroup MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             按指定的分工位
+             </remarks>
+             <param name="np">Input argument #1</param>
+             <param name="P">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.ThreeGroup(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the ThreeGroup MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             按指定的分工位
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.ThreeGroup(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the ThreeGroup MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             按指定的分工位
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="np">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.ThreeGroup(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the ThreeGroup MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             按指定的分工位
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="np">Input argument #1</param>
+             <param name="P">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:demoNative.Demo.ThreeGroup(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the ThreeGroup function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             按指定的分工位
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:demoNative.Demo.WaitForFiguresToDie">
+             <summary>
+             This method will cause a MATLAB figure window to behave as a modal dialog box.
+             The method will not return until all the figure windows associated with this
+             component have been closed.
+             </summary>
+             <remarks>
+             An application should only call this method when required to keep the
+             MATLAB figure window from disappearing.  Other techniques, such as calling
+             Console.ReadLine() from the application should be considered where
+             possible.</remarks>
+            
+        </member>
+    </members>
+</doc>

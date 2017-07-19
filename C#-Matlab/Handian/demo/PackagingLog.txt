@@ -1,0 +1,48 @@
+ant:
+<ant>
+  <mkdir dir="E:\UseMatlab_0505\Handian\demo\for_redistribution" />
+  <mkdir dir="E:\UseMatlab_0505\Handian\demo\for_testing" />
+</ant>
+mcc -W 'dotnet:demo,Demo,0.0,private' -T link:lib -d E:\UseMatlab_0505\Handian\demo\for_testing -v E:\UseMatlab_0505\Handian\demo.m E:\UseMatlab_0505\Handian\Greed.m E:\UseMatlab_0505\Handian\Greed2t.m E:\UseMatlab_0505\Handian\Plot4Sim.m E:\UseMatlab_0505\Handian\poly_intersect.m E:\UseMatlab_0505\Handian\RandHandian.m E:\UseMatlab_0505\Handian\ThreeGroup.m 'class{Demo:E:\UseMatlab_0505\Handian\demo.m,E:\UseMatlab_0505\Handian\Greed.m,E:\UseMatlab_0505\Handian\Greed2t.m,E:\UseMatlab_0505\Handian\Plot4Sim.m,E:\UseMatlab_0505\Handian\poly_intersect.m,E:\UseMatlab_0505\Handian\RandHandian.m,E:\UseMatlab_0505\Handian\ThreeGroup.m}' 
+Compiler version: 5.1 (R2014a)
+Dependency analysis by REQUIREMENTS.
+[警告: Adding path "E:\UseMatlab_0505\Handian" to Compiler path instance.] 
+[警告: Adding path "E:\UseMatlab_0505\Handian" to Compiler path instance.] 
+[警告: 重复的目录名称: E:\UseMatlab_0505\Handian] 
+[警告: Adding path "E:\UseMatlab_0505\Handian" to Compiler path instance.] 
+[警告: 重复的目录名称: E:\UseMatlab_0505\Handian] 
+[警告: Adding path "E:\UseMatlab_0505\Handian" to Compiler path instance.] 
+[警告: 重复的目录名称: E:\UseMatlab_0505\Handian] 
+[警告: Adding path "E:\UseMatlab_0505\Handian" to Compiler path instance.] 
+[警告: 重复的目录名称: E:\UseMatlab_0505\Handian] 
+[警告: Adding path "E:\UseMatlab_0505\Handian" to Compiler path instance.] 
+[警告: 重复的目录名称: E:\UseMatlab_0505\Handian] 
+[警告: Adding path "E:\UseMatlab_0505\Handian" to Compiler path instance.] 
+[警告: 重复的目录名称: E:\UseMatlab_0505\Handian] 
+Parsing file "E:\UseMatlab_0505\Handian\demo.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "E:\UseMatlab_0505\Handian\Greed.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "E:\UseMatlab_0505\Handian\Greed2t.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "E:\UseMatlab_0505\Handian\Plot4Sim.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "E:\UseMatlab_0505\Handian\poly_intersect.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "E:\UseMatlab_0505\Handian\RandHandian.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "E:\UseMatlab_0505\Handian\ThreeGroup.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "D:\MatlabR2014a\toolbox\compiler\deploy\deployprint.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "D:\MatlabR2014a\toolbox\compiler\deploy\printdlg.m"
+	(Referenced from: "Compiler Command Line").
+Deleting 0 temporary MEX authorization files.
+Generating file "E:\UseMatlab_0505\Handian\demo\for_testing\DemoNative.cs".
+Generating file "E:\UseMatlab_0505\Handian\demo\for_testing\Demo.cs".
+Generating file "E:\UseMatlab_0505\Handian\demo\for_testing\readme.txt".
+Executing command: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /nologo /optimize /doc:"E:\UseMatlab_0505\Handian\demo\for_testing\demo.xml" /t:library /r:"D:\MatlabR2014a\toolbox\dotnetbuilder\bin\win64\v2.0\MWArray.dll" /resource:"E:\UseMatlab_0505\Handian\demo\for_testing\demo.ctf" /out:"E:\UseMatlab_0505\Handian\demo\for_testing\demo.dll" "E:\UseMatlab_0505\Handian\demo\for_testing\Demo.cs"Executing command: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /nologo /optimize /doc:"E:\UseMatlab_0505\Handian\demo\for_testing\demoNative.xml" /t:library /r:"D:\MatlabR2014a\toolbox\dotnetbuilder\bin\win64\v2.0\MWArray.dll" /resource:"E:\UseMatlab_0505\Handian\demo\for_testing\demo.ctf" /out:"E:\UseMatlab_0505\Handian\demo\for_testing\demoNative.dll" "E:\UseMatlab_0505\Handian\demo\for_testing\DemoNative.cs"
+Packaging...
+Creating the bundle...
+Web based installer created at E:\UseMatlab_0505\Handian\demo\for_redistribution\MyAppInstaller_web.exe.
+Packaging complete.

@@ -1,0 +1,24 @@
+ant:
+<ant>
+  <mkdir dir="E:\UseMatlab_0505\example\add\for_redistribution" />
+  <mkdir dir="E:\UseMatlab_0505\example\add\for_testing" />
+</ant>
+mcc -W 'dotnet:add,Class1,0.0,private' -T link:lib -d E:\UseMatlab_0505\example\add\for_testing -v E:\UseMatlab_0505\example\add.m class{Class1:E:\UseMatlab_0505\example\add.m} 
+Compiler version: 5.1 (R2014a)
+Dependency analysis by REQUIREMENTS.
+[¾¯¸æ: Adding path "E:\UseMatlab_0505\example" to Compiler path instance.] 
+Parsing file "E:\UseMatlab_0505\example\add.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "D:\MatlabR2014a\toolbox\compiler\deploy\deployprint.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "D:\MatlabR2014a\toolbox\compiler\deploy\printdlg.m"
+	(Referenced from: "Compiler Command Line").
+Deleting 0 temporary MEX authorization files.
+Generating file "E:\UseMatlab_0505\example\add\for_testing\Class1Native.cs".
+Generating file "E:\UseMatlab_0505\example\add\for_testing\Class1.cs".
+Generating file "E:\UseMatlab_0505\example\add\for_testing\readme.txt".
+Executing command: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /nologo /optimize /doc:"E:\UseMatlab_0505\example\add\for_testing\add.xml" /t:library /r:"D:\MatlabR2014a\toolbox\dotnetbuilder\bin\win64\v2.0\MWArray.dll" /resource:"E:\UseMatlab_0505\example\add\for_testing\add.ctf" /out:"E:\UseMatlab_0505\example\add\for_testing\add.dll" "E:\UseMatlab_0505\example\add\for_testing\Class1.cs"Executing command: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /nologo /optimize /doc:"E:\UseMatlab_0505\example\add\for_testing\addNative.xml" /t:library /r:"D:\MatlabR2014a\toolbox\dotnetbuilder\bin\win64\v2.0\MWArray.dll" /resource:"E:\UseMatlab_0505\example\add\for_testing\add.ctf" /out:"E:\UseMatlab_0505\example\add\for_testing\addNative.dll" "E:\UseMatlab_0505\example\add\for_testing\Class1Native.cs"
+Packaging...
+Creating the bundle...
+Web based installer created at E:\UseMatlab_0505\example\add\for_redistribution\MyAppInstaller_web.exe.
+Packaging complete.
