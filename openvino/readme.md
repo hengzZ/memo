@@ -5,7 +5,7 @@
 Installation: https://software.intel.com/en-us/articles/OpenVINO-Install-Linux
 
 
-#### Model Optimizer
+#### 1. Model Optimizer
 
 *Model Optimizer process assumes you have a network model trained using one of the supported frameworks.*
 ```
@@ -34,12 +34,16 @@ Installation: https://software.intel.com/en-us/articles/OpenVINO-Install-Linux
 * Supported ONNX Layers: https://software.intel.com/en-us/articles/OpenVINO-Using-ONNX#supported-onnx-layers
 
 
-Go to the <INSTALL_DIR>/deployment_tools/model_optimizer directory <br>
-Run the mo_tf.py script with a path to the MetaGraph .meta file to convert a model: <br>
+示例： <br>
+**Step 1:** Go to the <INSTALL_DIR>/deployment_tools/model_optimizer directory <br>
+**Step 2:** Run the mo_tf.py script with a path to the MetaGraph .meta file to convert a model: <br>
 ```bash
 mo_tf.py --input_meta_graph <INPUT_META_GRAPH>.meta
 ```
 
 
-#### Custom Layer
+#### 2. Inference Engine
+
+
+#### 3. Custom Layer
 please refer: https://software.intel.com/en-us/articles/OpenVINO-ModelOptimizer#caffe-models-with-custom-layers
