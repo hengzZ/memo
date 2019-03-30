@@ -1,5 +1,6 @@
 ## Windows Caffe 环境安装
 
+
 #### (optional) cuda 安装
 ```
 # cuda 下载
@@ -24,6 +25,10 @@ https://developer.nvidia.com/cudnn
 ```
 # 下载源
 https://github.com/BVLC/caffe/tree/windows
+# 安装 cmake 3.4 及以上版本
+cmake-3.6.1-win64-x64.msi
+# Ninja release (.exe)
+https://github.com/ninja-build/ninja/releases
 # 编译、安装
 C:\Projects> git clone https://github.com/BVLC/caffe.git
 C:\Projects> cd caffe
@@ -41,17 +46,36 @@ C:\Projects\caffe> scripts\build_win.cmd
 
 #### 3. OpenCV3 下载
 ```
-
+下载 opencv3.0
 ```
 
 
 #### 4. Visual Studio 配置
 ```
-
+1. 配置 VC++ 目录
+	* 包含目录 （include）
+	* 库目录 （lib）
+2. 链接器->输入
+	* 附加依赖项 （release模式）
+	opencv_ts300.lib
+	opencv_world300.lib
+3. 运行时 dll 文件
+	opencv_world300.dll
 ```
 
 
 #### 5. 测试代码
 ```
+#include <opencv2/core.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 
+using namespace cv;
+
+int main(int argc, char** argv)
+{
+	Mat image = imread("Test.jpg");
+	imwrite("testWriting.jpg", image);
+	return 0;
+}
 ```
