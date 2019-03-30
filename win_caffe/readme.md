@@ -1,0 +1,57 @@
+## Windows Caffe 环境安装
+
+#### (optional) cuda 安装
+```
+# cuda 下载
+https://developer.nvidia.com/cuda-downloads
+# local exe 安装方式
+1. Launch the downloaded installer package.
+2. Read and accept the EULA.
+3. Select "next" to download and install all components.
+4. Once the download completes, the installation will begin automatically.
+5. Once the installation completes, click "next" to acknowledge the Nsight Visual Studio Edition installation summary.
+6. Click "close" to close the installer.
+7. Navigate to the CUDA Samples' nbody directory.
+8. Open the nbody Visual Studio solution file for the version of Visual Studio you have installed. 
+9. Open the "Build" menu within Visual Studio and click "Build Solution". 
+10. Navigate to the CUDA Samples' build directory and run the nbody sample. 
+# （optional） cuDNN 安装
+https://developer.nvidia.com/cudnn
+```
+
+
+#### 1. Caffe 下载
+```
+# 下载源
+https://github.com/BVLC/caffe/tree/windows
+# 编译、安装
+C:\Projects> git clone https://github.com/BVLC/caffe.git
+C:\Projects> cd caffe
+C:\Projects\caffe> git checkout windows
+:: Edit any of the options inside build_win.cmd to suit your needs
+C:\Projects\caffe> scripts\build_win.cmd
+```
+
+
+#### 2. Visual Studio 配置
+```
+
+```
+
+
+#### 3. OpenCV3 下载
+```
+
+```
+
+
+#### 4. Visual Studio 配置
+```
+
+```
+
+
+#### 5. 测试代码
+```
+
+```
