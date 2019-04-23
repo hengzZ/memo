@@ -42,6 +42,9 @@ C:\Projects\caffe> git checkout windows
 :: if NOT DEFINED WITH_NINJA set WITH_NINJA=1
 :: if NOT DEFINED CMAKE_BUILD_SHARED_LIBS set CMAKE_BUILD_SHARED_LIBS=1
 :: if NOT DEFINED RUN_TESTS set RUN_TESTS=1
+   # 添加 OpenCV 支持
+:: if NOT DEFINED USE_OPENCV set USE_OPENCV=1
+:: if NOT DEFINED OPENCV_VERSION set OPENCV_VERSION=3
    # 编译
 C:\Projects\caffe> scripts\build_win.cmd
 ```
@@ -109,6 +112,11 @@ caffe.lib
 libprotobuf.lib
 libprotobuf-lite.lib
 libprotoc.lib
+```
+* OpenCV 宏定义
+```
+USE_OPENCV=1
+OPENCV_VERSION=3
 ```
 
 <br>
