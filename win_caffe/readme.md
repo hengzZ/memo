@@ -123,6 +123,14 @@ int main(int argc, char** argv)
 	* 附加依赖项 （release模式）
 3. 运行时 dll 文件
 ``` 
+###### WARNING: Boost LINK 错误 “libbost...”
+```
+Boost 的链接文件名生成过程，请参考 头文件目录下 config/auto_link.hpp
+**解决方法**
+修改 dll 和 lib 文件的名称与 link 报警提示名一致！！
+or
+重新编译安装 boost 库
+```
 
 ##### caffe 环境配置
 ###### caffe 的头文件与库目录在下载、编译目录。
