@@ -97,6 +97,19 @@ int main(int argc, char** argv)
     return 0;
 }
 ```
+注意：
+* caffe.pb.h 和 caffe.pb.cc 需要添加到当前工程中进行编译。
+* 依赖项
+```
+opencv_core310.lib
+opencv_highgui310.lib
+opencv_videoio310.lib
+opencv_imgproc310.lib
+caffe.lib
+libprotobuf.lib
+libprotobuf-lite.lib
+libprotoc.lib
+```
 
 <br>
 
