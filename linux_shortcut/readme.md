@@ -67,7 +67,63 @@
 
 <br>
 
-##### Part 2 —— 快捷方式参考模板
+#### Part 2 —— Icon 配置
+以 linux 360 安全浏览器为例
+* find /usr/share/ -name "browser360-beta*"
+```
+/usr/share/icons/hicolor/24x24/apps/browser360-beta.png
+/usr/share/icons/hicolor/16x16/apps/browser360-beta.png
+/usr/share/icons/hicolor/256x256/apps/browser360-beta.png
+/usr/share/icons/hicolor/32x32/apps/browser360-beta.png
+/usr/share/icons/hicolor/48x48/apps/browser360-beta.png
+/usr/share/icons/hicolor/128x128/apps/browser360-beta.png
+/usr/share/icons/hicolor/64x64/apps/browser360-beta.png
+/usr/share/icons/hicolor/22x22/apps/browser360-beta.png
+```
+* .desktop 文件
+```
+[Desktop Entry]
+Version=1.0
+Name=360安全浏览器 (beta)
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=Web Browser
+GenericName[zh_CN]=网页浏览器
+GenericName[zh_HK]=網頁瀏覽器
+GenericName[zh_TW]=網頁瀏覽器
+# Gnome and KDE 3 uses Comment.
+Comment=Access the Internet
+Comment[zh_CN]=访问互联网
+Comment[zh_HK]=連線到網際網路
+Comment[zh_TW]=連線到網際網路
+Exec=/usr/bin/browser360-beta %U
+Terminal=false
+Icon=browser360-beta
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+Actions=NewWindow;NewPrivateWindow;
+
+[Desktop Action NewWindow]
+Name=New Window
+Name[zh_CN]=新建窗口
+Name[zh_TW]=開新視窗
+Exec=/usr/bin/browser360-beta
+
+[Desktop Action NewPrivateWindow]
+Name=New Incognito Window
+Name[zh_CN]=新建隐身窗口
+Name[zh_TW]=新增無痕式視窗
+Exec=/usr/bin/browser360-beta --incognito
+```
+
+总结：
+* 图标可用 png 格式图片
+* 尺寸金字塔： 16、 22、 24、 32、 48、 64、 128、 256
+
+<br>
+
+##### Part 3 —— 快捷方式参考模板
 * Application 类型
     * 请参考 /usr/share/applications/firefox.desktop
 * Link 类型
