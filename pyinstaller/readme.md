@@ -86,7 +86,7 @@ https://pyinstaller.readthedocs.io/en/v3.3.1/usage.html#options
 <br>
 
 **软件更新，发布工具，请转到** <br>
-[pyupdater](pyupdater)
+[pyupdater.md](pyupdater.md)
 
 <br>
 
