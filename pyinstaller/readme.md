@@ -77,8 +77,16 @@ pip3 install --force-reinstall pyinstaller==3.5
 
 ```bash
 cd [path]/app
-pyinstaller -w app.py  # -w 隐藏 exe 终端窗口
+pyinstaller -Fw app.py  # -w 隐藏 exe 终端窗口; -F 打包为单执行文件
 ```
+
+**Pyinstaller 打包配置选项详情，请查询** <br>
+https://pyinstaller.readthedocs.io/en/v3.3.1/usage.html#options
+
+<br>
+
+**软件更新，发布工具，请转到** <br>
+[pyupdater](pyupdater)
 
 <br>
 
