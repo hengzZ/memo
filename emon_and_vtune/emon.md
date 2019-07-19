@@ -21,6 +21,7 @@
     cd <emon 安装目录>/sepdk/src
     ./build-driver
 (备注： 如果运行 emon 时存在 pax 与 sep 冲突，请到 emon 安装目录注销 pax 模块)
+    rmmod pax
 ```
 
 #### Emon 脚本
