@@ -76,7 +76,7 @@ $ cpupower idle-info
 ### Step2: run svr_info first
 ```bash
 $ cd SPECjbb2015/svrinfo-master
-$ sh svr_info.sh
+$ ./svr_info.sh
 ```
 
 ### Step3: Run
