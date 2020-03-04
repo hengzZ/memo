@@ -15,6 +15,8 @@
 Archive 网页：https://jdk.java.net/archive/
 ```
 请查看是否使用的公司网络。使用个人网络下载，防止网络受限。
+或者 使用 --no-check-certificate 参数：
+$ wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz -O openjdk.tar.gz --no-check-certificate
 ```
 
 #### 给脚本添加可执行权限
