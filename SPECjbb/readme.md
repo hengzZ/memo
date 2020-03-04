@@ -14,16 +14,27 @@
 ###### 补充：Unable to establish SSL connection. 问题解决
 Archive 网页：https://jdk.java.net/archive/
 ```
-查看是否使用的公司网络。使用个人网络下载。
+请查看是否使用的公司网络。使用个人网络下载，防止网络受限。
 ```
 
+#### 给脚本添加可执行权限
+* ``chmod +x SPECjbb*/*.sh``
+* ``chmod +x SPECjbb*/*/*.sh``
+
+
+#### OS 环境配置
+注意，请先备份旧的系统环境配置！！
 ```bash
-chmod +x SPECjbb*/*.sh
-chmod +x SPECjbb*/*/*.sh
-sudo sh -c "echo always > /sys/kernel/mm/transparent_hugepage/enabled "
+$ sudo cp /sys/kernel/mm/transparent_hugepage/enabled ./enabled.old
+$ sudo cp /etc/security/limits.conf ./limits.conf.old
+```
+配置：
+```bash
+sudo sh -c "echo [always] madvise never > /sys/kernel/mm/transparent_hugepage/enabled "
 sudo sh -c "echo \* soft nofile 65536 >> /etc/security/limits.conf "
 sudo sh -c "echo \* hard nofile 65536 >> /etc/security/limits.conf "
-sudo ln -s <当前目录的绝对路径> /workloads    # 用于 run.sh 脚本的执行（因为内部的 JAVA 路径从 /workloads/JVM/$JVM/bin/java 运行）
+sudo ln -s `pwd` /workloads  #非常重要的一步！ 将<当前目录的绝对路径>软连接至/workloads。（注意！删除软连接要很小心！！！ 一定不要带 -r 参数！！）
+#【说明】： /workloads 用于 run.sh 脚本的执行（因为内部的 JAVA 路径从 /workloads/JVM/$JVM/bin/java 运行
 ```
 
 ###### 补充： 是否启用透明大页
@@ -50,9 +61,23 @@ cat /sys/kernel/mm/transparent_hugepage/enabled
 但是 ORACLE 却同时建议关闭透明大页管理。这二者的区别在于大页的分配机制，标准大页管理是预分配的方式，而透明大页管理则是动态分配的方式。
 ```
 
+### Step1: Performance Mode
+```bash
+# CPU 功耗模式设置
+$ cpupower frequency-set -g performance
+# CPU 功耗模式查看
+$ cpupower help frequency-info
+$ cpupower frequency-info -p
+$ cpupower idle-info
+```
 
+### Step2: run svr_info first
+```bash
+$ cd SPECjbb2015/svrinfo-master
+$ sh svr_info.sh
+```
 
-### Run
+### Step3: Run
 将 ``jvm/jdk/bin`` 添加到环境变量 ``PATH``，如：``export PATH=~/specjbb/jvm/jdk/bin/${PATH:+:${PATH}}``。
 ``cd SPECjbb2015/ && sudo ./run.sh HBIR_RT jbb102 specjbb2015_pkb_baremetal jdk "-XX:UseAVX=0" NONE 0``
 
@@ -61,4 +86,5 @@ cat /sys/kernel/mm/transparent_hugepage/enabled
 * ``cat /workloads/SPECjbb2015/jbb102/1000_HBIR_RT_jbb102_jdk_specjbb2015_pkb_baremetal_NONE/result/*/*/*.raw | grep 'critical-jOPS' | cut -d '=' -f2 | sed -e 's/^[         ]*//'``
 
 ### CleanUp
-``sudo rm -rf specjbb.tar.gz SPECjbb2015-master openjdk.tar.gz /workloads``
+* ``sudo rm -rf specjbb.tar.gz SPECjbb2015-master openjdk.tar.gz``
+* ``sudo rm -f /workloads  #注意，删除软连接不要使用 -r 参数！！！！！ 会删源目录内数据``
