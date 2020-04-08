@@ -67,3 +67,6 @@ tf_cnn_benchmarks.py --device=cpu --nodistortions --mkl=True --forward_only=True
 ```bash
 python tf_cnn_benchmarks.py --device=cpu --nodistortions --mkl=True --forward_only=True --data_format=NHWC --model=resnet50 --num_inter_threads=2 --num_intra_threads=56 --batch_size=128
 ```
+
+备注：
+> python tf_cnn_benchmarks.py --help  #查看参数列表
