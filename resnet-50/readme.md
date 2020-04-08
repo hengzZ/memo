@@ -19,8 +19,41 @@ Variables:   parameter_server
 ==========
 ```
 
-## deployment
+## Deployment
+```bash
+pip install virtualenv
+virtualenv --no-site-packages tf-1.14 -p python3
+source tf-1.14/bin/activate
+pip install tensorflow==1.14.0 --proxy=child-prc.intel.com:913
+# 退出虚拟环境
+deactivate
+#For tf-1.13虚拟环境
+virtualenv --no-site-packages tf-1.13 -p python3
+source tf-1.13/bin/activate
+pip install tensorflow==1.13.1 --proxy=child-prc.intel.com:913
+# 查看已安装内容
+pip freeze
+```
 
+## CPU 环境确认
+
+#### Performance Mode
+```bash
+cpupower frequency-set -g performance
+cpupower frequency-info -p
+```
+
+#### idle-set（非必须）
+```bash
+cpupower idle-set -d 2
+# 查看主频（-i指定信息采集间隔）
+turbostat -i 1
+```
+
+#### 使用perf监测CPI（推荐emon，迫不得已再用perf）
+```bash
+perf stat -I 1000 -e "instructions,cycles"
+```
 
 ## Run
 ```bash
