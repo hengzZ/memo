@@ -45,7 +45,7 @@ cpupower frequency-info -p
 
 #### idle-set（非必须）
 ```bash
-cpupower idle-set -d 2
+cpupower idle-set -d 3
 # 查看主频（-i指定信息采集间隔）
 turbostat -i 1
 ```
