@@ -24,16 +24,26 @@ Variables:   parameter_server
 pip install virtualenv
 virtualenv --no-site-packages tf-1.14 -p python3
 source tf-1.14/bin/activate
-pip install tensorflow==1.14.0 --proxy=child-prc.intel.com:913
+pip install tensorflow==1.14.0 --proxy=child-prc.intel.com:913 --force-reinstall
 # 退出虚拟环境
 deactivate
 #For tf-1.13虚拟环境
 virtualenv --no-site-packages tf-1.13 -p python3
 source tf-1.13/bin/activate
-pip install tensorflow==1.13.2 --proxy=child-prc.intel.com:913
+pip install tensorflow==1.13.2 --proxy=child-prc.intel.com:913 --force-reinstall
+#或者 python -m pip install tensorflow==1.13.2 --proxy=child-prc.intel.com:913 --force-reinstall
 # 查看已安装内容
 pip freeze
 ```
+
+如果没有``pip``，安装的方法如下：
+```bash
+$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python get-pip.py
+# 如果是python3的话
+$ python3 get-pip.py
+```
+
 
 ## CPU 环境确认
 
@@ -58,15 +68,45 @@ $ turbostat -i 1
 perf stat -I 1000 -e "instructions,cycles"
 ```
 
+## Intel turbo.sh
+```bash
+#!/bin/sh
+
+cores=$(cat /proc/cpuinfo | grep process | awk '{print $3}')
+
+if [[ ${#} == 0 ]]; then
+    for core in $cores
+    do
+        status=`rdmsr -p${core} 0x1a0 -f 38:38`
+        if [[ ${status} == 1 ]]; then
+            echo "Core[${core}]:Disabled"
+        else
+            echo "Core[${core}]:Enabled"
+        fi
+    done
+elif [[ $1 == "disable" ]]; then
+    for core in $cores
+    do
+        wrmsr -p${core} 0x1a0 0x4000850089
+    done
+elif [[ $1 == "enable" ]]; then
+    for core in $cores
+    do
+        wrmsr -p${core} 0x1a0 0x850089
+    done
+fi
+```
+> $ bash turbo.sh enable
+
 ## Run
 ```bash
 git clone https://github.com/tensorflow/benchmarks
 cd benchmarks/scripts/tf_cnn_benchmarks
-tf_cnn_benchmarks.py --device=cpu --nodistortions --mkl=True --forward_only=True --data_format=NHWC --model=resnet50 --num_inter_threads=2 --num_intra_threads=56 --batch_size=128
+python tf_cnn_benchmarks.py --device=cpu --nodistortions --mkl=True --forward_only=True --data_format=NHWC --model=resnet50 --num_inter_threads=2 --num_intra_threads=56 --batch_size=128
 ```
 
 ## 注意！
-使用``pip install tensorflow==1.13.2``环境
+使用``pip install tensorflow==1.13.2``环境的，可以切换到一个1.13的兼容分支。。
 ```bash
 git clone https://github.com/tensorflow/benchmarks
 cd benchmarks
