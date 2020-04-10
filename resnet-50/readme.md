@@ -45,9 +45,12 @@ cpupower frequency-info -p
 
 #### idle-set（非必须）
 ```bash
-cpupower idle-set -d 3
+$ cpupower idle-set -d 3
+# 确认当前状态
+$ cpupower idle-info
+$ cpupower frequency-info
 # 查看主频（-i指定信息采集间隔）
-turbostat -i 1
+$ turbostat -i 1
 ```
 
 #### 使用perf监测CPI（推荐emon，迫不得已再用perf）
