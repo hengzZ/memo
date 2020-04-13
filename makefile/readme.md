@@ -1,4 +1,4 @@
-# Learning Memo #
+# Makefile
 
 
 ## 工程浏览 ##
@@ -41,7 +41,7 @@
 ### Markdown语法参考 ###
 参考[Markdown语法说明][]  
 
-### Makefile ###
+### Makefile （C++ 快速入门）
 参考[A simple Makefile Tutorial][]
 
 
