@@ -63,6 +63,21 @@ cat /sys/kernel/mm/transparent_hugepage/enabled
 但是 ORACLE 却同时建议关闭透明大页管理。这二者的区别在于大页的分配机制，标准大页管理是预分配的方式，而透明大页管理则是动态分配的方式。
 ```
 
+## 依赖环境！！
+CentOS下：
+```bash
+yum install -y python
+yum install -y redhat-lsb-core
+yum install -y numactl bc
+```
+Ubuntu下：
+```bash
+apt-get -y install python
+apt-get -y install lsb-release
+apt-get -y install numactl bc
+```
+
+
 ### Step1: Performance Mode
 ```bash
 # CPU 功耗模式设置
