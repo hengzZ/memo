@@ -55,6 +55,9 @@ cpupower frequency-info -p
 
 #### idle-set（非必须）
 ```bash
+$ cpupower idle-set -e 1
+$ cpupower idle-set -e 2
+$ cpupower idle-set -e 3
 $ cpupower idle-set -d 3
 # 确认当前状态
 $ cpupower idle-info
