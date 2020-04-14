@@ -15,6 +15,7 @@
 
 #### 环境部署
 ```bash
+# PostgreSQL
 $ wget https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 $ yum install -y pgdg-redhat-repo-latest.noarch.rpm
 $ yum install -y readline-devel zlib-devel
@@ -26,15 +27,41 @@ $ cd postgresql-11.5
 $ ./configure
 $ make -j20
 $ make install
-
+# HammerDB
 $ wget https://sourceforge.net/projects/hammerdb/files/HammerDB/HammerDB-3.2/HammerDB-3.2-Linux.tar.gz
 $ tar -zxvf HammerDB-3.2-Linux.tar.gz
 ```
 
-#### Run
+#### Run （有待确认）
 ```bash
-
+# 初始化数据库
+$ cd /usr/local/pgsql/bin
+$ ./initdb -D /usr/local/pgsql/data/
+# 配置文件 data/postgresql.conf
+# 启动 postgresql
+$ systemctl start postgresql-11
+# 启动 hammerdb
+$ cd HammerDB-3.2
+$ ./hammerdb
 ```
+
+补充知识点：
+```
+从CentOS 7.x开始，CentOS开始使用systemd服务来代替daemon，与此同时，
+1. 原来管理系统启动和管理系统服务的命令 service 由 systemctl 命令来代替：
+- |daemon命令|	            |systemctl命令|	                |说明|
+- service [服务] start	    systemctl start [unit type]	    启动服务
+- service [服务] stop	    systemctl stop [unit type]	    停止服务
+- service [服务] restart	systemctl restart [unit type]	重启服务
+2. 原来的 chkconfig 命令与 systemctl 命令对比：
+- |daemon命令|	            |systemctl命令|	                |说明|
+- chkconfig [服务] on	    systemctl enable [unit type]	设置服务开机启动
+- chkconfig [服务] off	    systemctl disable [unit type]	设备服务禁止开机启动
+3. Centos 7.x 中取消了 iptables，用 firewall 取而代之。 关闭防火墙 firewall：
+- systemctl stop firewalld.service                          |关闭防火墙|
+- systemctl disable firewalld.service                       |禁止防火墙开机启动|
+```
+
 
 #### 配置文件
 
@@ -97,7 +124,7 @@ max_wal_senders=0
 min_wal_size=262144
 max_wal_size=524288
 ```
-Note: HammerDB 3.2v is installed on the same system as PostgreSQL.
+**Note: HammerDB v3.2 is installed on the same system as PostgreSQL.**
 
 
 #### 查看 CPU 逻辑核对应的 ID
