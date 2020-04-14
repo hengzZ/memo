@@ -1,12 +1,39 @@
 ## PostgreSQL Benchmark
 
+#### 安装包
+文档教程：
+* https://www.postgresqltutorial.com/install-postgresql/
+* https://www.hammerdb.com/docs/ch01.html
+
+下载链接：（版本必须一致）
+```
+* vm.RemoteCommand('sudo yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/'
+                    'EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm', ignore_failure=True)
+  cmds = ["sudo yum -y install postgresql11", "sudo yum -y install postgresql11-server"]
+* HAMMERDB_SRC = ('https://sourceforge.net/projects/hammerdb/files/HammerDB/' 'HammerDB-3.2/HammerDB-3.2-Linux.tar.gz')
+```
+
 #### 环境部署
 ```bash
-yum install readline-devel zlib-devel
-cd postgresql-11.5
-./configure
-make
-make install
+$ wget https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+$ yum install -y pgdg-redhat-repo-latest.noarch.rpm
+$ yum install -y readline-devel zlib-devel
+# yum install -y postgresql11 postgresql11-server
+# https://www.postgresql.org/ftp/source/v11.5/
+$ wget https://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.gz
+$ tar -zxvf postgresql-11.5.tar.gz
+$ cd postgresql-11.5
+$ ./configure
+$ make -j20
+$ make install
+
+$ wget https://sourceforge.net/projects/hammerdb/files/HammerDB/HammerDB-3.2/HammerDB-3.2-Linux.tar.gz
+$ tar -zxvf HammerDB-3.2-Linux.tar.gz
+```
+
+#### Run
+```bash
+
 ```
 
 #### 配置文件
@@ -71,3 +98,11 @@ min_wal_size=262144
 max_wal_size=524288
 ```
 Note: HammerDB 3.2v is installed on the same system as PostgreSQL.
+
+
+#### 查看 CPU 逻辑核对应的 ID
+```bash
+cpuinfo
+# numactl 绑定 AMD CPU 的后 56 个物理核。
+numactl -C 8-63,72-127 --localalloc <cmd>
+```
