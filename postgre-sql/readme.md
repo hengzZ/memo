@@ -47,7 +47,7 @@ $ chown postgresql-test /usr/local/pgsql/data
 $ su - postgresql-test
 $ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data                      #初始化数据库
 $ /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data >logfile 2>&1 &    #启动
-$ /usr/local/pgsql/bin/createdb test
+$ /usr/local/pgsql/bin/createdb test                                        #创建名为test的数据库
 $ /usr/local/pgsql/bin/psql test
 $ help
 $ \q
@@ -65,8 +65,8 @@ $ /usr/local/pgsql/bin/pg_ctl stop -D /usr/local/pgsql/data
 $ /usr/local/pgsql/bin/pg_ctl start -D /usr/local/pgsql/data
 # 设置账户和密码
 $ /usr/local/pgsql/bin/psql --help
-#$ /usr/local/pgsql/bin/psql -U postgresql-test -d postgresql-test
-#$ /usr/local/pgsql/bin/psql -U postgresql-test -d postgresql-test -W
+#$ /usr/local/pgsql/bin/psql -U postgresql-test -d test                    #用户：postgresql-test 数据库名称：test
+#$ /usr/local/pgsql/bin/psql -U postgresql-test -d test -W
 # 添加环境变量
 $ export LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH
 # 测试 hammerdb 环境
@@ -80,7 +80,19 @@ $ quit
 $ export DISPLAY=:0.0
 $ ./hammerdb
 ```
+
 > 注意！没有无界面服务器可能无法显示 hammerdb 交互信息。。。
+```bash
+# 使用vnc访问：
+# 1. 启动 vncserver，输入vnc登陆需要的密码。
+$ vncserver
+# 2. 命令行启动 vncviwer，进行访问
+# 跳板机： 10.239.45.3:7        #密码111111
+$ vncviwer 192.168.14.171:1     #密码intel,111
+# 运行 HammerDB
+$ ./hammerdb
+```
+
 
 补充知识点：
 - 系统服务管理
