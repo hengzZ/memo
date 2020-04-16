@@ -14,38 +14,76 @@
 ```
 
 #### 环境部署
+
+安装，推荐参考：
+* https://www.postgresql.org/docs/11/install-short.html
+* https://www.hammerdb.com/blog/uncategorized/hammerdb-best-practice-for-postgresql-performance-and-scalability/
+
 ```bash
-# PostgreSQL
-$ wget https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-$ yum install -y pgdg-redhat-repo-latest.noarch.rpm
-$ yum install -y readline-devel zlib-devel
-# yum install -y postgresql11 postgresql11-server
-# https://www.postgresql.org/ftp/source/v11.5/
-$ wget https://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.gz
-$ tar -zxvf postgresql-11.5.tar.gz
-$ cd postgresql-11.5
-$ ./configure
-$ make -j20
-$ make install
+$ mkdir postgresql-hammerdb
+$ cd postgresql-hammerdb
 # HammerDB
 $ wget https://sourceforge.net/projects/hammerdb/files/HammerDB/HammerDB-3.2/HammerDB-3.2-Linux.tar.gz
 $ tar -zxvf HammerDB-3.2-Linux.tar.gz
+# PostgreSQL
+# yum install -y postgresql11 postgresql11-server
+# https://www.postgresql.org/ftp/source/v11.5/
+$ wget https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+$ wget https://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.gz
+$ yum install -y pgdg-redhat-repo-latest.noarch.rpm
+$ yum install -y readline-devel zlib-devel
+$ tar -zxvf postgresql-11.5.tar.gz
+```
+```bash
+$ cd postgresql-11.5
+$ ./configure
+$ make -j20
+$ su
+$ make install
+#$ make uninstall                                                           #卸载PostgreSQL
+$ adduser postgresql-test                                                   #创建一个非root账户，账户名：postgresql-test
+$ mkdir /usr/local/pgsql/data
+$ chown postgresql-test /usr/local/pgsql/data
+$ su - postgresql-test
+$ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data                      #初始化数据库
+$ /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data >logfile 2>&1 &    #启动
+$ /usr/local/pgsql/bin/createdb test
+$ /usr/local/pgsql/bin/psql test
+$ help
+$ \q
 ```
 
-#### Run （有待确认）
+#### Run
 ```bash
-# 初始化数据库
-$ cd /usr/local/pgsql/bin
-$ ./initdb -D /usr/local/pgsql/data/
-# 配置文件 data/postgresql.conf
-# 启动 postgresql
-$ systemctl start postgresql-11
-# 启动 hammerdb
+# 修改配置文件，位置：
+# - /usr/local/pgsql/data/postgresql.conf
+# - /etc/sysctl.conf
+# - /etc/security/limits.conf
+# 重启 postgresql
+$ ps -ef | grep post
+$ /usr/local/pgsql/bin/pg_ctl stop -D /usr/local/pgsql/data
+$ /usr/local/pgsql/bin/pg_ctl start -D /usr/local/pgsql/data
+# 设置账户和密码
+$ /usr/local/pgsql/bin/psql --help
+#$ /usr/local/pgsql/bin/psql -U postgresql-test -d postgresql-test
+#$ /usr/local/pgsql/bin/psql -U postgresql-test -d postgresql-test -W
+# 添加环境变量
+$ export LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH
+# 测试 hammerdb 环境
 $ cd HammerDB-3.2
+$ ./hammerdbcli
+$ librarycheck
+$ quit
+# Now! Create the Schema and Run the Test:
+# - https://www.hammerdb.com/document.html
+# - https://www.hammerdb.com/docs/ch04.html
+$ export DISPLAY=:0.0
 $ ./hammerdb
 ```
+> 注意！没有无界面服务器可能无法显示 hammerdb 交互信息。。。
 
 补充知识点：
+- 系统服务管理
 ```
 从CentOS 7.x开始，CentOS开始使用systemd服务来代替daemon，与此同时，
 1. 原来管理系统启动和管理系统服务的命令 service 由 systemctl 命令来代替：
@@ -61,7 +99,10 @@ $ ./hammerdb
 - systemctl stop firewalld.service                          |关闭防火墙|
 - systemctl disable firewalld.service                       |禁止防火墙开机启动|
 ```
-
+- Linux 系统目录结构
+```
+https://www.runoob.com/linux/linux-system-contents.html
+```
 
 #### 配置文件
 
