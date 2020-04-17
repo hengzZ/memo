@@ -62,6 +62,7 @@ $ \q
 # - /etc/security/limits.conf
 # 重启 postgresql
 $ ps -ef | grep post
+$ su - postgres
 $ /usr/local/pgsql/bin/pg_ctl stop -D /usr/local/pgsql/data
 $ /usr/local/pgsql/bin/pg_ctl start -D /usr/local/pgsql/data
 # 设置账户和密码
@@ -93,6 +94,16 @@ $ vncviewer 192.168.14.171:1     #密码intel,111
 # 运行 HammerDB
 $ ./hammerdb
 ```
+
+接下来，参考 https://www.hammerdb.com/docs/ch04.html 的 3、4 章节进行测试：
+* 3.5.[PostgreSQL Schema Build Options](https://www.hammerdb.com/docs/ch04s03.html#d0e1139)
+* 4.[Creating the Schema](https://www.hammerdb.com/docs/ch04s04.html)
+* 4.5.[Deleting or Verifying the PostgreSQL Schema](https://www.hammerdb.com/docs/ch04s04.html#d0e1367)
+
+**PostgreSQL Schema Build Options**
+<div align="center">
+<img src="postgresql-schema-build-options.png" width="45%">
+</div>
 
 
 补充知识点：
