@@ -105,6 +105,16 @@ $ ./hammerdb
 <img src="postgresql-schema-build-options.png" width="45%">
 </div>
 
+#### 删除 PostgreSQL Schema
+```bash
+$ su - postgres
+$ /usr/local/pgsql/bin/psql -U postgres
+# 在控制台 'postgres=#' 输入以下内容：
+drop database tpcc;
+drop role tpcc;
+quit                   #退出
+```
+
 
 补充知识点：
 - 系统服务管理
