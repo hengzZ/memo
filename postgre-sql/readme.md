@@ -1,11 +1,11 @@
 ## PostgreSQL Benchmark
 
 #### 安装包
-文档教程：
-* https://www.postgresqltutorial.com/install-postgresql/
-* https://www.hammerdb.com/docs/ch01.html
+官网：
+* PostgreSQL: https://www.postgresql.org/
+* HammerDB: https://www.hammerdb.com/docs/ch01.html
 
-下载链接：（版本必须一致）
+下载版本信息：（版本必须一致）
 ```
 * vm.RemoteCommand('sudo yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/'
                     'EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm', ignore_failure=True)
@@ -15,9 +15,9 @@
 
 #### 环境部署
 
-安装，推荐参考：
-* https://www.postgresql.org/docs/11/install-short.html
-* https://www.hammerdb.com/blog/uncategorized/hammerdb-best-practice-for-postgresql-performance-and-scalability/
+安装，参考文档：
+* PostgreSQL: https://www.postgresql.org/docs/11/install-short.html
+* HammerDB测试环境：https://www.hammerdb.com/blog/uncategorized/hammerdb-best-practice-for-postgresql-performance-and-scalability/
 
 ```bash
 $ mkdir postgresql-hammerdb
@@ -34,6 +34,7 @@ $ yum install -y pgdg-redhat-repo-latest.noarch.rpm
 $ yum install -y readline-devel zlib-devel
 $ tar -zxvf postgresql-11.5.tar.gz
 ```
+
 ```bash
 $ cd postgresql-11.5
 $ ./configure
@@ -41,10 +42,10 @@ $ make -j20
 $ su
 $ make install
 #$ make uninstall                                                           #卸载PostgreSQL
-$ adduser postgresql-test                                                   #创建一个非root账户，账户名：postgresql-test
+$ adduser postgres                                                          #创建一个非root账户，账户名：postgres
 $ mkdir /usr/local/pgsql/data
-$ chown postgresql-test /usr/local/pgsql/data
-$ su - postgresql-test
+$ chown postgres /usr/local/pgsql/data
+$ su - postgres
 $ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data                      #初始化数据库
 $ /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data >logfile 2>&1 &    #启动
 $ /usr/local/pgsql/bin/createdb test                                        #创建名为test的数据库
@@ -65,8 +66,8 @@ $ /usr/local/pgsql/bin/pg_ctl stop -D /usr/local/pgsql/data
 $ /usr/local/pgsql/bin/pg_ctl start -D /usr/local/pgsql/data
 # 设置账户和密码
 $ /usr/local/pgsql/bin/psql --help
-#$ /usr/local/pgsql/bin/psql -U postgresql-test -d test                    #用户：postgresql-test 数据库名称：test
-#$ /usr/local/pgsql/bin/psql -U postgresql-test -d test -W
+#$ /usr/local/pgsql/bin/psql -U postgres -d test                            #用户：postgres 数据库名称：test
+#$ /usr/local/pgsql/bin/psql -U postgres -d test -W
 # 添加环境变量
 $ export LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH
 # 测试 hammerdb 环境
@@ -86,9 +87,9 @@ $ ./hammerdb
 # 使用vnc访问：
 # 1. 启动 vncserver，输入vnc登陆需要的密码。
 $ vncserver
-# 2. 命令行启动 vncviwer，进行访问
-# 跳板机： 10.239.45.3:7        #密码111111
-$ vncviwer 192.168.14.171:1     #密码intel,111
+# 2. 命令行启动 vncviewer，进行访问
+# 跳板机： 10.239.45.3:7          #密码111111
+$ vncviewer 192.168.14.171:1     #密码intel,111
 # 运行 HammerDB
 $ ./hammerdb
 ```
