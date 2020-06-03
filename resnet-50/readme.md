@@ -128,3 +128,8 @@ python tf_cnn_benchmarks.py --device=cpu --nodistortions --mkl=True --forward_on
 
 备注：
 > python tf_cnn_benchmarks.py --help  #查看参数列表
+
+
+# ResNet50 INT8
+—— https://github.com/IntelAI/models/tree/master/benchmarks/image_recognition/tensorflow/resnet50#int8-inference-instructions
+
