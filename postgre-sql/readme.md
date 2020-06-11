@@ -21,6 +21,14 @@ $ sudo apt-get install postgresql
 $ sudo apt-get install pgadmin3
 ```
 正常情况下，安装完成后，PostgreSQL 服务器会自动在本机的 5432 端口开启。
+```
+Setting up postgresql-9.3 (9.3.24-0ubuntu0.14.04) ...
+Creating new cluster 9.3/main ...
+  config /etc/postgresql/9.3/main
+  data   /var/lib/postgresql/9.3/main
+  locale en_US.UTF-8
+  port   5432
+```
 
 ``` bash
 $ netstat -lntup
@@ -28,22 +36,114 @@ $ netstat -lntup
 注意，初次安装后，默认生成一个名为 ``postgres`` 的数据库和一个名为 ``postgres`` 的数据库用户。同时还生成了一个名为 ``postgres`` 的 Linux 系统用户！！
 
 ``` bash
-$ sudo adduser dbuser       #添加新LINUX用户
+# 方法一：使用 PostgreSQL 控制台添加新用户和新数据库。
+$ sudo adduser dbuser       #添加新LINUX用户（不推荐执行）
 $ sudo su - postgres        #切换用户
 $ psql                      #登录PostgreSQL控制台
 # 以下，在postgres=#终端中输入：
-\password postgres
+\c
+\du
+\l
+\password postgres          #注意：给postgres用户设置密码！！
 CREATE USER dbuser WITH PASSWORD 'password';
 CREATE DATABASE exampledb OWNER dbuser;
 GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
 \q
+
+$ psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432
 ```
 
 ``` bash
-# 以新用户登陆数据库 （使用的依旧是 psql 命令）
+# 方法二：使用 shell 命令行添加新用户和新数据库。
+$ sudo adduser dbuser
+$ sudo -u postgres createuser --superuser dbuser
+$ sudo -u postgres psql
+> \password dbuser
+> \q
+
+$ sudo -u postgres createdb -O dbuser exampledb
 $ psql -U dbuser -d exampledb -h 127.0.0.1 -p 5432
 ```
 **基本的数据库操作，就是使用一般的 SQL 语言**。
+
+``` bash
+# 删除LINUX用户及home下的目录
+$ sudo userdel -r dbuser
+# 卸载PostgreSQL
+$ sudo apt-get purge postgres*
+```
+
+PostgreSQL 入门：
+- https://www.runoob.com/postgresql/postgresql-select-database.html
+- http://www.ruanyifeng.com/blog/2013/12/getting_started_with_postgresql.html
+
+
+#### postgresql – psql：致命：角色 “postgres” 不存在 (使用 ``-h localhost`` 选项连接)
+
+``` bash
+$ psql -U postgres -d postgres
+$ psql -U postgres -d postgres -h localhost
+```
+
+> 第一种形式(没有-h) 通过 “**unix socket**” 连接。第二种形式，“-h localhost” 通过 **TCP/IP** 连接到 localhost (IP地址127.0.0.1)。
+
+```
+1. postgres 默认是不接受 tcp/ip 连接的。
+   有两种方式来控制它接受 tcp/ip 连接，一种是用启动参数 -i ，另一种方式是修改数据库目录里的文件：postgresql.conf 中的参数，
+   将 tcpip_socket = false 改为 true，port = 5432 前面的注释符号去掉。表示接受 tcp/ip 在 5432 的连接。
+2. 关于 pg_hba.conf 这个文件。这个文件是控制 postgresql 数据库服务器登录的关键。
+   psql 这个客户端的登录语法：psql [-h 主机名] [-U 用户名] [-W 密码] 数据库名。
+   如果省略主机名，系统会认为首先从本机连接，那么它会采用 unix socket 的方式来进行连接。
+   如果指定 -h 参数它会以 TCP/IP 的方式来进行连接，-U 是登录用户名。
+```
+
+``$ sudo vim /usr/local/pgsql/data/postgresql.conf``
+``` shell
+#------------------------------------------------------------------------------
+# CONNECTIONS AND AUTHENTICATION
+#------------------------------------------------------------------------------
+
+# - Connection Settings -
+
+listen_addresses = 'localhost'      # what IP address(es) to listen on;
+                                    # comma-separated list of addresses;
+                                    # defaults to 'localhost'; use '*' for all
+                                    # (change requires restart)
+port = 5432                         # (change requires restart)
+max_connections = 100               # (change requires restart)
+```
+
+``$ sudo vim /usr/local/pgsql/data/pg_hba.conf``
+``` shell
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust
+# IPv6 local connections:
+host    all             all             ::1/128                 trust
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all                                     trust
+host    replication     all             127.0.0.1/32            trust
+host    replication     all             ::1/128                 trust
+```
+
+- TYPE 参数设置：`local` 表示 unix-domain socket 连接，`host` 表示 TCP/IP socket 连接，`hostssl` 表示 SSL 加密的 TCP/IP socket 连接。
+- DATABASE 参数设置：`all`，`sameuser`，`samerole`，`replication`，`数据库名称`，多个数据库名称用 `,` 逗号分割。 **注意 ALL 不匹配 replication**。
+- USER 参数设置：`all`，`一个用户名`，`一组用户名`，多个用户时可以用 `,` 逗号隔开。
+- ADDRESS 参数设置：该参数可以为 `主机名称` 或者 `IP/32(IPV4)` 或 `IP/128(IPV6)`，主机名称以 `.` 开头，`samehost` 或 `samenet` 匹配任意IP地址。
+- METHOD 参数设置：该值可以为 "trust", "reject", "md5", "password", "scram-sha-256", "gss", "sspi", "ident", "peer", "pam", "ldap", "radius" or "cert"。 注意 若为 `password` 则发送的为明文密码。
+
+注意：修改 pg_hba.conf 文件后，必须重启 ``postgresql`` 服务。若要允许其它 IP 地址访问该主机数据库，则必须修改 ``postgresql.conf`` 中的参数 ``listen_addresses`` 为 ``*``。
+
+``` bash
+$ sudo service postgresql restart
+$ sudo service postgresql stop
+$ sudo service postgresql start
+```
+
 
 ### HammerDB
 —— https://www.hammerdb.com/docs/index.html
@@ -69,15 +169,129 @@ Where do you want to install HammerDB? [/usr/local/HammerDB-3.3]
 Installing HammerDB...
 Installing Program Files...
 Installation complete.
+$ cd /usr/local/HammerDB-3.3
+$ ./hammerdb
 ```
 
 ``` bash
 # 安装方式二：tar.gz 文件安装
-$ tar -zxvf HammerDB-3.0.tar.gz
-$ cd HammerDB-3.0
-$ ./hammerdb
+$ tar -zxvf HammerDB-3.2.tar.gz
+$ cd HammerDB-3.2
+$ ./hammerdbcli
+> librarycheck
 ```
 卸载：``To uninstall HammerDB on Linux run the uninstall executable for the self-extracting installer or remove the directory for the tar.gz install.``
+
+测试：
+``` bash
+$ cd HammerDB-3.2
+$ ./hammerdbcli
+> librarycheck
+
+> dbset db orac
+# Unknown prefix orac, choose one from ora mssqls db2 mysql pg redis
+
+> dbset db pg
+> print db
+> dbset bm TPC-C
+> print bm
+> print dict
+> diset tpcc pg_count_ware 10
+> diset tpcc pg_num_vu 4
+> print dict
+
+> buildschema
+> vustatus
+# When the build is complete destroy the Virtual Users and confirm the status.
+> vudestroy
+> vustatus
+
+# hammerdb>vustatus
+# 1 = FINISH SUCCESS
+# 2 = FINISH SUCCESS
+# 3 = FINISH SUCCESS
+# 4 = FINISH SUCCESS
+# 5 = FINISH SUCCESS
+
+> print dict
+> diset tpcc pg_driver timed
+> diset tpcc pg_rampup 1
+> diset tpcc pg_duration 3
+> print dict
+
+> loadscript
+> print script
+
+# With the schema built and the driver script loaded,
+# the next step in the workflow is to configure the Virtual Users.
+> print vucreated
+> vuset vu 4
+> print vuconf
+> vucreate
+> vustatus
+
+# Next, Run the workload.
+> vurun
+> vustatus
+# `vucomplete` command returns a boolean value to confirm that
+# whether an entire workload is still running or finished.
+> vucomplete
+
+# END (Important!!)
+# 1.Confirm the workload is finished.
+> vucomplete
+true
+# 2.Destroy the Virtual Users
+> vudestroy
+# 3.Clear the script.
+> clearscript
+```
+
+#### CLI Scripting
+
+**The CLI enables a powerful automated test environment through scripting in the TCL language.** *The following example shows an automated test script for a Redis database that has previously been created.*
+
+```
+#!/usr/bin/tclsh
+proc runtimer { seconds } {
+set x 0
+set timerstop 0
+while {!$timerstop} {
+ incr x
+ after 1000
+  if { ![ expr {$x % 60} ] } {
+  set y [ expr $x / 60 ]
+  puts "Timer: $y minutes elapsed"
+  }
+ update
+ if {  [ vucomplete ] || $x eq $seconds } { set timerstop 1 }
+    }
+return
+}
+puts "SETTING CONFIGURATION"
+dbset db redis
+diset tpcc redis_driver timed
+diset tpcc redis_rampup 0
+diset tpcc redis_duration 1
+vuset logtotemp 1
+loadscript
+puts "SEQUENCE STARTED"
+foreach z { 1 2 4 } {
+puts "$z VU TEST"
+vuset vu $z
+vucreate
+vurun
+runtimer 120
+vudestroy
+after 5000
+}
+puts "TEST SEQUENCE COMPLETE"
+```
+
+``` bash
+$ ./hammerdbcli
+$ source cliexample.tcl
+```
 
 参考：
 - https://blog.csdn.net/Space_zero/article/details/78924604
@@ -119,12 +333,13 @@ $ yum install -y readline-devel zlib-devel
 #export LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH
 ```
 
-#### VNC Viewer 安装和使用
+#### VNC Viewer 安装和使用（针对 ./hammerdb 图形界面场景！）
 
 ``` bash
 $ vncserver
 $ vncviewer 192.168.14.171:1
 ```
+推荐使用 ``./hammerdbcli`` 方式进行测试。
 
 
 ### 2 配置参数
@@ -206,11 +421,11 @@ max_wal_size=524288
 #### 删除 PostgreSQL Schema
 ```bash
 $ su - postgres
-$ /usr/local/pgsql/bin/psql -U postgres
+$ psql -U postgres
 # 在控制台 'postgres=#' 输入以下内容：
 drop database tpcc;
 drop role tpcc;
-quit                   #退出
+quit
 ```
 
 
