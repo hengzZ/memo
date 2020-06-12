@@ -36,15 +36,25 @@ $ netstat -lntup
 注意，初次安装后，默认生成一个名为 ``postgres`` 的数据库和一个名为 ``postgres`` 的数据库用户。同时还生成了一个名为 ``postgres`` 的 Linux 系统用户！！
 
 ``` bash
-# 方法一：使用 PostgreSQL 控制台添加新用户和新数据库。
-$ sudo adduser dbuser       #添加新LINUX用户（不推荐执行）
-$ sudo su - postgres        #切换用户
+$ sudo su - postgres
 $ psql                      #登录PostgreSQL控制台
 # 以下，在postgres=#终端中输入：
 \c
 \du
 \l
-\password postgres          #注意：给postgres用户设置密码！！
+\password postgres          #给postgres用户设置密码！！
+\q
+```
+
+``` bash
+# 方法一：使用 PostgreSQL 控制台添加新用户和新数据库。
+$ sudo adduser dbuser       #添加新LINUX用户
+$ sudo su - postgres        #切换用户
+$ psql
+# 以下，在postgres=#终端中输入：
+\c
+\du
+\l
 CREATE USER dbuser WITH PASSWORD 'password';
 CREATE DATABASE exampledb OWNER dbuser;
 GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
@@ -148,7 +158,7 @@ $ sudo service postgresql start
 ### HammerDB
 —— https://www.hammerdb.com/docs/index.html
 
-HammerDB 是一个开源的数据库压力测试的基准工具，同时支持 Linux 和 Windows 系统，有图形用户界面(GUI)和命令行两种形式。目前支持的数据库包括 Oracle, SQL Server, DB2, MySQL, MariaDB, PostgreSQL, Redis 等。
+HammerDB 是一个开源的数据库压力测试的基准工具，同时支持 Linux 和 Windows 系统，有图形用户界面(GUI)和命令行(CLI)两种形式。目前支持的数据库包括 Oracle, SQL Server, DB2, MySQL, MariaDB, PostgreSQL, Redis 等。
 
 HammerDB 模拟了标准的 ``TPC-C`` 和 ``TPC-H`` 两种测试模型。
 
@@ -331,7 +341,25 @@ $ quit
 $ wget https://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.gz
 $ yum install -y readline-devel zlib-devel
 #export LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH
+#export PATH=/usr/local/pgsql/bin:$PATH
 ```
+
+``` bash
+# Installation from Source Code （This is Short Version！！）
+./configure
+make
+su
+make install
+adduser postgres
+mkdir /usr/local/pgsql/data
+chown postgres /usr/local/pgsql/data
+su - postgres
+/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+/usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data >logfile 2>&1 &
+/usr/local/pgsql/bin/createdb test
+/usr/local/pgsql/bin/psql test
+```
+
 
 #### VNC Viewer 安装和使用（针对 ./hammerdb 图形界面场景！）
 
@@ -423,9 +451,11 @@ max_wal_size=524288
 $ su - postgres
 $ psql -U postgres
 # 在控制台 'postgres=#' 输入以下内容：
+\du
+\l
 drop database tpcc;
 drop role tpcc;
-quit
+\q
 ```
 
 
